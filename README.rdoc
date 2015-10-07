@@ -1,26 +1,26 @@
-= Linux Typewriter
+= Javascript Typewriter
 
-If you want to make some kind of screencast that features keyboard typing sounds,
-this might come in handy. Get the script, run keypress.py and pump up your volume.
+If you want typing sounds for user input or whatever this might come in handy.
+
+Check out demo.html and demo.js for examples
+
+or just get started:
+1) Include keypress.js and the /sounds folder
+2) create a controller once
+var soundPlayer = KeyPressSoundController();
+3) call this every time you wanna play a sound
+soundPlayer.PlayRandomSound();
 
 == Requirements
 
-* Python
-* <code>python-xlib</code> (On Debian-based, install with <code>sudo apt-get install python-xlib)</code>
-* aplay command line player, but you really can dump in anything you want, see <code>keypress.py</code>
+* Support for the 'Audio' object in JS
 
 == Rip-off!!!
 
-Yes, this was adopted from Sayan "Riju" Chakrabarti (sayanriju).
-
-== Why didn't you just fork it?
-
-Good question, guess it just didn't occur to me :)
-
-== What's changed?
-
-The first time I looked at the code, I couldn't really figure out what was going on. There was a senatra web server acting as a proxy that all the keypresses would go through which I didn't understand. Not to say that wasn't the correct approach, but it wasn't the approach I needed/wanted. I did some looking on threading and tried my best at getting each call to aplay working so that there wasn't a delay.
+* I ripped this off from Christoph Olszowka ( https://github.com/colszowka/linux-typewriter )
+* He in turn ripped off Sayan "Riju" Chakrabarti (sayanriju).
+* Keypress sounds extracted from 'keyboard-typing' by Anton at Freesound ( www.freesound.org/samplesViewSingle.php?id=137 )
 
 == Can it play different sounds for different keys?
 
-The original one that sayanriju made could, and this one will eventually.
+I've included a list of the regular JS keycodes...might add some functionality around that in the future
