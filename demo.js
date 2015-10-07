@@ -7,11 +7,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 function initiateSoundPlayer() {
   soundPlayer = KeyPressSoundController();
+}
 
-  //ALTERNATIVE: - load the sounds manually
-  //var options = {doNotLoadSoundsAutomatically: true};
-  //soundPlayer = KeyPressSoundController(options);
-  //soundPlayer.LoadSounds(soundPlayer.FileNames);
+function initiateSoundPlayerWithOptions() {
+  //if you for some reason dont want sounds to load automatically
+  var options = {
+    doNotLoadSoundsAutomatically: true
+  };
+  soundPlayer = KeyPressSoundController(options);
+  soundPlayer.LoadSounds(soundPlayer.FileNames);
 }
 
 function hookUpEvents() {

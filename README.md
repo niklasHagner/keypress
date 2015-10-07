@@ -1,18 +1,23 @@
 # Javascript Typewriter
 
-Generate random keyboard click sounds.
-Uses vanilla JS and the HTML 'Audio' object
+* Generates random keyboard click sounds.
+* Nuthin' but vanilla JS is used
 
-[Demo](https://dl.dropboxusercontent.com/u/4486136/Github/demo.html)
+[Demo using an Oldschool Terminal](https://dl.dropboxusercontent.com/u/4486136/Github/demo.html)
 
 ## Files
+* keypress.js - the only code you need
+* /sounds - contains key0.mp3 to key8.mp3
+* demo.html - oldschool terminal demo
+* demo.js - shows some examples of how to initiate the Keypress controller
+* css - just some styling for the terminal demo
 
 ## Getting started
 * Include keypress.js and the /sounds folder
 * Check out demo.js for sample code
 
 ```javascript
-//create a controller once
+//on page load: create a KeyPressSoundController, the class which IS the library
 var soundPlayer = KeyPressSoundController();
 //call this every time you wanna play a sound
 soundPlayer.PlayRandomSound();
