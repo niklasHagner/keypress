@@ -3,8 +3,6 @@
 * Plays random keyboard click sounds.
 * Uses vanilla JS and mp3 files
 
-#### [Demo of an oldschool terminal](https://dl.dropboxusercontent.com/u/4486136/Github/demo.html)
-
 ## Files
 * `keypress.js` - the library itself
 * `/sounds` - contains 9 mp3 files (`key0.mp3`, `key1.mp3` ...)
