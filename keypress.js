@@ -14,49 +14,6 @@ var KeyPressSoundController = function(options) {
 
   var loadedAudioFiles = [];
 
-  var keys = {
-    isAtoZ: function(e) {
-      return e >= 65 && e <= 90;
-    },
-    isNumber: function(e) {
-      return e >= 48 && e <= 57;
-    },
-    isF1toF12: function(e) {
-      return e >= 112 && e <= 123;
-    },
-    isNotWrittenText: function(e) {
-      return e >= 16 && e < 46 || (e>= 91 && e <=146);
-    },
-    isBackspace: 8,
-    tab: 9,
-    enter: 13,
-    shift: 16,
-    ctrl: 17,
-    alt: 18,
-    pausebreak: 19,
-    capslock: 20,
-    escape: 27,
-    pageup: 33,
-    pagedown: 34,
-    end: 35,
-    home: 36,
-    leftarrow: 37,
-    uparrow: 38,
-    rightarrow: 39,
-    downarrow: 40,
-    insert: 45,
-    delete: 46,
-    leftwindowkey: 91,
-    rightwindowkey: 92,
-    selectkey: 93,
-    numlock: 144,
-    scrolllock: 145
-  };
-
-  var ignorelist = [
-    keys.escape
-  ];
-
   var loadSounds = function(fileNames) {
     fileNames.forEach(function(fileName) {
       try {
@@ -72,8 +29,8 @@ var KeyPressSoundController = function(options) {
   };
 
   var playRandomSound = function() {
-    if (fileNames.length <1 || loadedAudioFiles.length <1) {
-      console.error("No audio files loaded");
+    if (areFilesLoaded()) {
+      console.error("No audio files have been loaded");
       return;
     }
     var randomIndex = getRandomInt(0, fileNames.length - 1);
@@ -93,13 +50,17 @@ var KeyPressSoundController = function(options) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
+  var areFilesLoaded = function() {
+    return fileNames.length < 1 || loadedAudioFiles.length < 1;
+  };
 
   var constructReturnObject = function(options) {
     var returnObject = {
       FileNames: fileNames,
       LoadSounds: loadSounds,
       PlayRandomSound: playRandomSound,
-      PlaySoundByFileName: playSoundByFileName
+      PlaySoundByFileName: playSoundByFileName,
+      AreFilesLoaded: areFilesLoaded
     };
     if (typeof options === "undefined" || typeof options !== "object") {
       applyDefaultOptions(returnObject);
