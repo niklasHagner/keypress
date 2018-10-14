@@ -1,40 +1,54 @@
+@font-face {
+  font-family: 'fsex300';
+  src: url('fsex300-webfont.eot');
+  src: url('fsex300-webfont.eot?#iefix') format('embedded-opentype'), url('fsex300-webfont.woff') format('woff'), url('fsex300-webfont.ttf') format('truetype'), url('fsex300-webfont.svg#fsex300-webfont') format('svg');
+}
+
+
 /*LAYOUT*/
 
 body, textarea, input {
   background: black url(scan_lines.png) repeat;
   color: rgb(140, 250, 120);
   font-family: consolas, mono-spaced;
+  font-family: 'fsex300', consolas, monospace;
   font-size: 30px;
-  margin: 0;
+  margin: 0 0 -20px 0;
   padding: 0;
-  height: 100vh;
+  height: calc( 100vh - 20px);
+  overflow-x: hidden;
   box-shadow: 1px 1px 40px rgba(100, 250, 110, 0.8) inset;
 }
+
 .fullWidthWrapper {
   background: rgba(1, 1, 1, 0.93);
   height: 100%;
-  width: 100%;
+  width: calc(100vw - 20px);
   position: relative;
-  text-align: center;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 20px;
 }
+
 article {
   margin-left: auto;
   display: inline-block;
   width: 500px;
 }
+
 .responseWrapper {
   width: 100%;
   position: relative;
   text-align: left;
 }
 
+
 /*CONSOLE TYPING AREA */
 
 ::selection {
-  background-color: rgba(0,255,0,0.5);
-  color: black ;
+  background-color: rgba(0, 255, 0, 0.5);
+  color: black;
 }
-
 
 #keypressArea, #keypressArea:focus, #keypressArea:active {
   outline: none;
@@ -42,6 +56,7 @@ article {
   cursor: blink;
   cursor: text;
 }
+
 
 /*CRT TEXT AREA*/
 
@@ -52,6 +67,7 @@ article {
   /*last keyframe stays after finished animation*/
   -webkit-animation-iteration-count: infinite;
 }
+
 .crt2 {
   -webkit-animation-name: animateSmallerHeight;
   -webkit-animation-duration: 1s;
@@ -59,6 +75,7 @@ article {
   /*last keyframe stays after finished animation*/
   -webkit-animation-iteration-count: infinite;
 }
+
 .crt3 {
   -webkit-animation-name: animateFontWeight;
   -webkit-animation-duration: 4s;
@@ -66,6 +83,7 @@ article {
   /*last keyframe stays after finished animation*/
   -webkit-animation-iteration-count: infinite;
 }
+
 .typewriterWrapper {
   -webkit-animation-name: wobbleShadow;
   -webkit-animation-duration: 2s;
@@ -73,6 +91,7 @@ article {
   /*last keyframe stays after finished animation*/
   -webkit-animation-iteration-count: infinite;
 }
+
 
 /*TEXT ANIMATIONS */
 
@@ -87,6 +106,7 @@ article {
     font-weight: normal%;
   }
 }
+
 @-webkit-keyframes animateColorAndBiggerHeight {
   30% {
     font-size: 101%;
@@ -95,6 +115,7 @@ article {
     font-size: 99%;
   }
 }
+
 @-webkit-keyframes wobbleShadow {
   20% {
     text-shadow: 1px 1px 5px 20px green;
@@ -106,6 +127,7 @@ article {
     text-shadow: 1px 2px 55px green;
   }
 }
+
 @-webkit-keyframes animateSmallerHeight {
   30% {
     font-size: 100%;
@@ -121,6 +143,7 @@ article {
   }
 }
 
+
 /*AUTOMATIC TYPEWRITER */
 
 .typewriter {
@@ -130,6 +153,7 @@ article {
   text-align: left;
   animation: animateWidth 4s steps(60, end);
 }
+
 @keyframes animateWidth {
   from {
     width: 0;
@@ -146,6 +170,7 @@ article {
   left: -20px;
   bottom: 0;
 }
+
 @-webkit-keyframes cursorFlash {
   50% {
     opacity: 0;
